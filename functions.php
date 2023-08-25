@@ -46,4 +46,40 @@ add_action('wp_enqueue_scripts','farza_css_js');
 
 
 
+
+// Acf options
+if( function_exists('acf_add_options_page') ) {
+
+    acf_add_options_page(array(
+        'page_title'    => 'Theme Option',
+        'menu_title'    => 'Theme Option',
+        'menu_slug'     => 'theme-Option',
+        'capability'    => 'edit_posts',
+        'redirect'      => false,
+        'icon_url'     =>'dashicons-welcome-widgets-menus',
+        'position'     =>3
+    ));
+
+
+    acf_add_options_sub_page(array(
+        'page_title'    => 'Header Options',
+        'menu_title'    => 'Header Options',
+        'parent_slug'   => 'theme-Option',
+    ));
+    acf_add_options_sub_page(array(
+        'page_title'    => 'Footer Options',
+        'menu_title'    => 'Footer Options',
+        'parent_slug'   => 'theme-Option',
+    ));
+
+
+}
+
+
+
+
+
+
+
+
 ?>
