@@ -1,0 +1,2 @@
+# farzaa
+ wp theme
