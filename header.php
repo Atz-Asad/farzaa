@@ -8,18 +8,7 @@
     <title>Farzaa</title>
     <link rel="shortcut icon" href="<?php the_field('favicon', 'option'); ?>" type="image/x-icon">
 
-    <!-- <link rel="stylesheet" href="assets/vendor/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/vendor/font-awesome/all.min.css">
-    <link rel="stylesheet" href="assets/vendor/font-awesome/sharp-regular.min.css">
-    <link rel="stylesheet" href="assets/vendor/font-awesome/sharp-solid.min.css">
-    <link rel="stylesheet" href="assets/vendor/modal-video/modal-video.min.css">
-    <link rel="stylesheet" href="assets/vendor/mean-menu/meanmenu.min.css">
-    <link rel="stylesheet" href="assets/vendor/owl-carousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/vendor/slick/slick.css">
-    <link rel="stylesheet" href="assets/vendor/nice-select/nice-select.css"> -->
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"></script>
 
     <!-- MAIN CSS -->
@@ -318,7 +307,14 @@
                 <div class="row g-0 align-items-center">
                     <div class="col-5 header-nav-container d-lg-block d-none">
                         <nav class="fz-header-nav">
-                            <ul class="align-items-center">
+
+                            <?php wp_nav_menu(array(
+                                'theme_location' => 'main-menu',
+                                'container' => ''
+                            ));
+                           ?>
+
+                            <!-- <ul class="align-items-center">
                                 <li class="fz-dropdown fz-nav-item">
                                     <a role="button" class="fz-nav-link"><span>home</span> <i class="fa-regular fa-plus"></i></a>
 
@@ -356,14 +352,14 @@
                                     </ul>
                                 </li>
                                 <li class="fz-nav-item"><a href="contact.html" class="fz-nav-link">contact</a></li>
-                            </ul>
+                            </ul> -->
                         </nav>
                     </div>
 
                     <div class="col-lg-2 col-md-6 col-9">
                         <div class="fz-logo-container text-lg-center text-start">
                             <a href="index.php">
-                                <img src="<?php echo get_template_directory_uri();?>/assets/images/logo-3.png" alt="logo" class="fz-logo">
+                                <img src="<?php the_field('header_logo','option');?>" alt="logo" class="fz-logo">
                             </a>
                         </div>
                     </div>
