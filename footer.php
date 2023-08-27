@@ -7,14 +7,14 @@
                     <div class="col-xxl-4 col-lg-12 col-md-8">
                         <div class="fz-footer-about fz-footer-widget">
                             <div class="fz-logo fz-footer-widget__title">
-                                <a href="index.html"><img src="assets/images/logo-3.png" alt="logo"></a>
+                                <a href="index.html"><img src="<?php the_field('footer_logo','option');?>" alt="logo"></a>
                             </div>
                             <p class="fz-footer-about__txt">There Are Many Different Styles Of Including Aviator, Wayfarer, Cat-Eye, Round, Some Sunglasses Also Have Polarized Lenses</p>
-                            <img src="assets/images/card.png" alt="Pyament Methods" class="fz-payment-methods">
+                            <img src="<?php the_field('payment_method_image','option');?>" alt="Pyament Methods" class="fz-payment-methods">
                         </div>
                     </div>
-
-                    <div class="col-xxl-2 col-lg-3 col-md-4 col-6 col-xxs-12">
+                    <?php dynamic_sidebar('footer_widgets');?>
+                    <!-- <div class="col-xxl-2 col-lg-3 col-md-4 col-6 col-xxs-12">
                         <div class="fz-footer-widget">
                             <h5 class="fz-footer-widget__title">Ways to Shop</h5>
                             <ul>
@@ -69,7 +69,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -80,18 +80,24 @@
                     <div class="col-md-6 col-12">
                         <p class="fz-copyright">
                             &copy;
-                            <script>document.write(new Date().getFullYear())</script> Design & Developed by <b>CodeBasket</b>
+                            <script>document.write(new Date().getFullYear())</script><?php the_field('footer_copyright_text','option'); ?>
                         </p>
                     </div>
 
                     <div class="col-md-6 col-12">
                         <div class="fz-footer-socials">
                             <ul>
-                                <li><a href=""><i class="fa-brands fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                                <?php
+
+                                if(have_rows('social_profiles','option')):
+                                while(have_rows('social_profiles','option')) : the_row();
+                                
+                                ?>
+                                <li><a href="<?php echo the_sub_field('profile_link'); ?>">
+                                    <?php echo the_sub_field('profiles_icon'); ?>
+                                </a></li>
+
+                                <?php endwhile; endif;?>
                             </ul>
                         </div>
                     </div>
@@ -101,21 +107,6 @@
     </footer>
     <!-- FOOTER SECTION STARTS HERE -->
 
-    <!-- <script src="assets/vendor/jquery/jquery-3.6.3.min.js"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/brands.min.js"></script> -->
-    <!-- <script src="assets/vendor/modal-video/jquery-modal-video.min.js"></script>
-    <script src="assets/vendor/bootstrap/bootstrap.min.js"></script>
-
-    <script src="assets/vendor/gsap/gsap.min.js"></script>
-    <script src="assets/vendor/syotimer/jquery.syotimer.min.js"></script>
-    <script src="assets/vendor/nice-select/jquery.nice-select.min.js"></script>
-    <script src="assets/vendor/owl-carousel/owl.carousel.min.js"></script>
-    <script src="assets/vendor/mean-menu/jquery.meanmenu.min.js"></script>
-    <script src="assets/vendor/slick/slick.min.js"></script>
-  
-    <script src="assets/js/main.js"></script> -->
-
-    <!-- <script src="assets/vendor/owl-carousel/owl.carousel.min.js"></script> -->
     <?php wp_footer(); ?>
 </body>
 
