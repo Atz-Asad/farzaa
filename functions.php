@@ -5,15 +5,17 @@ function farzaa_theme_support(){
     add_theme_support('title-tag');
     add_theme_support('thubnails');
 
+    // Menus
+    register_nav_menus(array(
+        'main-menu' => 'Main Menu',
+    ));
+
 
 }
 add_action('after_setup_theme','farzaa_theme_support');
 
-
-
-
 // Theme css and js
-function farza_css_js(){
+function farzaa_css_js(){
 
     // css files
     wp_enqueue_style('bootstrap-css',get_template_directory_uri().'/assets/vendor/bootstrap/bootstrap.min.css');
@@ -42,9 +44,22 @@ function farza_css_js(){
     wp_enqueue_script('main-js',get_template_directory_uri().'/assets/js/main.js', array(), '1.0.0', true);
 
 }
-add_action('wp_enqueue_scripts','farza_css_js');
+add_action('wp_enqueue_scripts','farzaa_css_js');
 
+// farzaa widgets
+function farzaa_sidebar_widgets(){
+    // footer widgets
+    register_sidebar(array(
+        'name' => 'Footer Widgets',
+        'id' => 'footer_widgets',
+        'before_widget' => '<div class="col-xxl-2 col-lg-3 col-md-4 col-6 col-xxs-12 fz-footer-widget">',
+        'after_widget' => '</div>',
+        'before_title' => '<h5 class="fz-footer-widget__title">',
+        'after_title' => '</h5>',
+    ));
 
+}
+add_action('widgets_init','farzaa_sidebar_widgets');
 
 
 // Acf options
