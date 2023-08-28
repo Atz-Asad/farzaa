@@ -1,65 +1,12 @@
 // PRELOADER START
-// document.body.style.position = "fixed";
-// window.addEventListener("load", () => {
-//     document.body.style.position = "";
-//     document.querySelector("#pre-loader").style.opacity = 0;
-//     document.querySelector("#pre-loader").style.visibility = "hidden";
-// });
+document.body.style.position = "fixed";
+window.addEventListener("load", () => {
+    document.body.style.position = "";
+    document.querySelector("#pre-loader").style.opacity = 0;
+    document.querySelector("#pre-loader").style.visibility = "hidden";
+});
 // PRELOADER END
 (function ($) {
-    'use strict';
-
-    var $banner_slider = $('.fz-1-banner-slider'),
-        $myaction = $('.mybody');
-
-    
-
-    // BANNER MODAL VIDEO
-    $(".fz-banner-vid-btn").modalVideo();
-
-    // banner slider 
-    if ($banner_slider.length > 0) {
-        $($banner_slider).owlCarousel({
-            items: 1,
-            autoplay: true,
-            loop: true,
-            margin: 0,
-            dots: false,
-
-            responsive: {
-                0: {
-                    items: 1,
-                    center: true,
-                },
-
-                480: {
-                    items: 2,
-                    center: false,
-                },
-
-                576: {
-                    items: 2,
-                },
-
-                768: {
-                    items: 3,
-                },
-
-                992: {
-                    items: 4,
-                },
-
-                1200: {
-                    margin: 30,
-                }
-            }
-        })
-    } 
-
-
-
-
-
     
 
 /////////////////////////////////////////////////////

@@ -4,19 +4,26 @@
         
         <section class="fz-1-banner-section">
             <div class="fz-1-banner-slider owl-carousel">
+                <?php 
+                
+                if(have_rows('banner_slider','option')):
+                while(have_rows('banner_slider','option')) : the_row();
+                
+                ?>
+                               
                 <div class="fz-1-banner-single-slide">
                     <div class="container position-relative">
                         <div class="row">
                             <div class="col-lg-6 col-md-7">
                                 <div class="fz-1-banner-txt">
-                                    <h1 class="text5">The Perfect Door For Every Occasion</h1>
+                                    <h1 class="text5"><?php echo the_sub_field('banner_heading'); ?></h1>
                                     
                                     <div class="fz-1-banner-txt__btns">
                                         <button class="fz-1-banner-vid-btn" >
                                             <i class="fa-solid fa-play"></i>
                                         </button>
 
-                                        <a href="shop.html" class="fz-1-banner-btn">View More <i class="fa-solid fa-arrow-up"></i></a>
+                                        <a href="<?php echo the_sub_field('banner_button_url'); ?>" class="fz-1-banner-btn"><?php echo the_sub_field('banner_button_text'); ?><i class="fa-solid fa-arrow-up"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -29,79 +36,14 @@
                                     </div>
 
                                     <div class="fz-1-banner-img">
-                                        <img src="<?php echo get_template_directory_uri();?>/assets/images/fz-3-banner-img-3.jpg" alt="Product Images">
+                                        <img src="<?php echo the_sub_field('banner_image'); ?>" alt="Product Images">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="fz-1-banner-single-slide">
-                    <div class="container position-relative">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-7">
-                                <div class="fz-1-banner-txt">
-                                    <h1 class="text5">Make your entrance a grand one</h1>
-
-                                    <div class="fz-1-banner-txt__btns">
-                                        <button class="fz-1-banner-vid-btn" data-video-id="SwZynNzqBys">
-                                            <i class="fa-solid fa-play"></i>
-                                        </button>
-
-                                        <a href="shop.html" class="fz-1-banner-btn">View More <i class="fa-solid fa-arrow-up"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 col-md-5 align-self-end">
-                                <div class="fz-1-banner-img-container">
-                                    <div class="sticker-container">
-                                        <img src="<?php echo get_template_directory_uri();?>/assets/images/sticker.png" alt="Sticker" class="sticker">
-                                        <span>25k</span>
-                                    </div>
-
-                                    <div class="fz-1-banner-img">
-                                        <img src="<?php echo get_template_directory_uri();?>/assets/images/fz-3-banner-img-2.jpg" alt="Product Images">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="fz-1-banner-single-slide">
-                    <div class="container position-relative">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-7">
-                                <div class="fz-1-banner-txt">
-                                    <h1 class="text5">The Key to a Stylish Home</h1>
-
-                                    <div class="fz-1-banner-txt__btns">
-                                        <button class="fz-1-banner-vid-btn" data-video-id="SwZynNzqBys">
-                                            <i class="fa-solid fa-play"></i>
-                                        </button>
-
-                                        <a href="shop.html" class="fz-1-banner-btn">View More <i class="fa-light fa-arrow-up-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 col-md-5 align-self-end">
-                                <div class="fz-1-banner-img-container">
-                                    <div class="sticker-container">
-                                        <img src="<?php echo get_template_directory_uri();?>/assets/images/sticker.png" alt="Sticker" class="sticker">
-                                        <span>25k</span>
-                                    </div>
-
-                                    <div class="fz-1-banner-img">
-                                        <img src="<?php echo get_template_directory_uri();?>/assets/images/fz-3-banner-img.png" alt="Product Images">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php endwhile; endif; ?>
             </div>
         </section>
         <!-- BANNER SECTION ENDS HERE -->
@@ -344,8 +286,8 @@
                 <div class="row gy-4 align-items-center">
                     <div class="col-lg-6">
                         <div class="subs-section__txt">
-                            <h2>Subscribe!</h2>
-                            <h3>Newsletter For Update & Offer</h3>
+                            <h2><?php the_field('subscribe_heading','option');?></h2>
+                            <h3><?php the_field('subscribe_content','option');?></h3>
                         </div>
                     </div>
 

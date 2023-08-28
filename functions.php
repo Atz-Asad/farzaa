@@ -10,6 +10,18 @@ function farzaa_theme_support(){
         'main-menu' => 'Main Menu',
     ));
 
+    // slider custom post type
+    // register_post_type('slider',array(
+    //     'labels' => array(
+    //         'name' => 'Slider',
+    //         'add_new' => 'Add New Slider',
+    //         'add_new_item' => 'Add New Slider',
+    //     ),
+    //     'public' => true,
+    //     'supports' => array('title','editor'),
+    //     'menu_icon' => 'dashicons-welcome-view-site',
+    // ));
+
 
 }
 add_action('after_setup_theme','farzaa_theme_support');

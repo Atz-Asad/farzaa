@@ -2342,7 +2342,7 @@ img {
   width: -moz-max-content;
   width: max-content;
 }
-.fz-header-nav .fz-nav-link:hover {
+.menu ul li a:hover {
   color: #B8860B;
 }
 .fz-header-nav .fz-nav-link i {
@@ -3685,7 +3685,7 @@ a.fz-hamburger {
   background-color: #222222;
   color: #ffffff;
 }
-.fz-1-banner-section .owl-nav {
+.fz-1-banner-section .owl-carousel .owl-nav {
   position: absolute;
   visibility: hidden;
   top: 50%;
